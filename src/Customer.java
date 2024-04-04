@@ -8,9 +8,9 @@ public abstract class Customer {
     protected List<Claim> claims = new ArrayList<>();
 
     public Customer() {
-        fullName = "Default";
-        id = "Default";
-        insuranceCard = "Default";
+        this.fullName = "Default";
+        this.id = "Default";
+        this.insuranceCard = null;
     }
     public Customer(String id, String fullName, InsuranceCard insuranceCard) {
         this.id = id;
