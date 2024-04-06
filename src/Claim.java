@@ -9,7 +9,7 @@ public final class Claim { //Made the class final
     private String insuredPerson;
     private String cardNumber;
     private Date examDate;
-    private List<String> documents = new ArrayList<>(); //Defensive copy below
+    private List<Document> documents = new ArrayList<Document>(); //Defensive copy below
     private double claimAmount;
     private ClaimStatus status;
     private BankingInfo receiverBankingInfo;
@@ -55,9 +55,17 @@ public final class Claim { //Made the class final
         this.receiverBankingInfo = receiverBankingInfo;
 
         //Defensive copy for document list
-        this.documents = documents != null ? new ArrayList<>(documents) : new ArrayList<>();
+        this.documents = documents != null ? new ArrayList<Document>(documents) : new ArrayList<Document>();
     }
 
+    //Method to add documents
+    public void addDocument(Document document) {
+        documents.add(document);
+    }
 
+    //Method to remove documents
+    public boolean removeDocument(Document document) {
+        return documents.remove(document);
+    }
 
 }
