@@ -2,14 +2,14 @@ import  java.util.List;
 import  java.util.ArrayList;
 
 public abstract class Customer {
+    // Attributes
     protected String id;
     protected String fullName;
     protected InsuranceCard insuranceCard;
     protected List<Claim> claims = new ArrayList<>();
-
     private CustomerRole role; //Represent whether the customer is a policyholder or dependent
 
-
+    // Default constructor
     public Customer() {
         this.fullName = "Default";
         this.id = "Default";

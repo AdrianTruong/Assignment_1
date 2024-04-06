@@ -1,16 +1,17 @@
-public class BankingInfo {
+public class BankingInfo { // Main class representing banking information
 
-    private String bankName;
+    private String bankName;             // Private fields for security
     private String accountHolderName;
     private String accountNumber;
 
-    public BankingInfo(String bankName, String accountNumber) {
+    // Constructor to initialize the banking information object
+    public BankingInfo(String bankName,String accountHolderName, String accountNumber) {
         this.bankName = bankName;
-        this.accountHolderName = accountNumber;
+        this.accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
     }
 
-    //Getters
+    // Getters for accessing the private data
     public String getBankName() {
         return bankName;
     }
@@ -23,7 +24,7 @@ public class BankingInfo {
         return accountNumber;
     }
 
-    // toString() to make it more easy to read and understand
+    // toString() for better object representation when printed
     @Override
     public String toString() {
         return "BankingInfo{" +
@@ -32,6 +33,4 @@ public class BankingInfo {
                 ", accountNumber='" + accountNumber + '\'' +
                 '}';
     }
-
-
 }

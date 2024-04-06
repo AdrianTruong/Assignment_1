@@ -40,11 +40,12 @@ public final class Claim { //Made the class final
             throw new IllegalArgumentException("Claim status is required");
         }
 
+        // Additional validation for the format of the claim ID
         if (!id.matches("^f\\d{10}$")) {
             throw new IllegalArgumentException("Claim ID format must follow f-numbers with 10 digits pattern");
         }
 
-
+        // Initialize claim attributes
         this.id = id;
         this.claimDate = claimDate;
         this.insuredPerson = insuredPerson;
@@ -55,7 +56,7 @@ public final class Claim { //Made the class final
         this.receiverBankingInfo = receiverBankingInfo;
 
         //Defensive copy for document list
-        this.documents = documents != null ? new ArrayList<Document>(documents) : new ArrayList<Document>();
+        this.documents = documents != null ? new ArrayList<>(documents) : new ArrayList<>();
     }
 
     //Method to add documents

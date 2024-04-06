@@ -9,6 +9,7 @@ public class InsuranceCard {
 
     // Default constructor
     public InsuranceCard() {
+        // Set default values for card attributes
         this.cardNumber = "Default";
         this.cardHolder = "Default";
         this.policyOwner = "Default";
@@ -17,6 +18,7 @@ public class InsuranceCard {
 
     // Parameterized Constrictor
     public InsuranceCard(String cardNumber, String cardHolder, String policyOwner, Date expirationDate) {
+        // Initialize card attributes with provided values
         this.cardNumber = cardNumber;
         this.cardHolder = cardHolder;
         this.policyOwner = policyOwner;
@@ -42,6 +44,7 @@ public class InsuranceCard {
 
     // toString() method
     public String toString() {
+        // Return a string representation of the InsuranceCard object
         return "InsuranceCard{" +
                 "cardHolder='" + cardNumber + '\'' +
                 ", cardHolder='" + cardHolder + '\'' +
