@@ -12,7 +12,7 @@ public final class Claim { //Made the class final
     private List<String> documents = new ArrayList<>(); //Defensive copy below
     private double claimAmount;
     private ClaimStatus status;
-    private BakingInfo receiverBankingInfo;
+    private BankingInfo receiverBankingInfo;
 
 
     // Constructor with all validations
@@ -57,6 +57,7 @@ public final class Claim { //Made the class final
         //Defensive copy for document list
         this.documents = documents != null ? new ArrayList<>(documents) : new ArrayList<>();
     }
+
 
 
 }
