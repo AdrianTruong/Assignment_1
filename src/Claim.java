@@ -12,11 +12,11 @@ public final class Claim { //Made the class final
     private List<String> documents = new ArrayList<>(); //Defensive copy below
     private double claimAmount;
     private ClaimStatus status;
-    private String receiverBankingInfo;
+    private BakingInfo receiverBankingInfo;
 
 
     // Constructor with all validations
-    public Claim(String id, Date claimDate, String insuredPerson, String cardNumber, Date examDate, double claimAmount, ClaimStatus status, String receiverBankingInfo) {
+    public Claim(String id, Date claimDate, String insuredPerson, String cardNumber, Date examDate, double claimAmount, ClaimStatus status, BankingInfo receiverBankingInfo) {
 
         if (id == null || id.isEmpty()) {
             throw new IllegalArgumentException("Claim ID cannot be empty");
@@ -38,6 +38,10 @@ public final class Claim { //Made the class final
         }
         if (status == null) {
             throw new IllegalArgumentException("Claim status is required");
+        }
+
+        if (!id.matches("^f\\d{10}$")) {
+            throw new IllegalArgumentException("Claim ID format must follow f-numbers with 10 digits pattern");
         }
 
 
