@@ -1,11 +1,21 @@
-public class Document {
+public final class  Document {
     private String claimID;
     private String cardNumber;
     private String documentName;
 
-    //Constructor to enforce the naming convention
+    //Constructor with validations
     public Document(String claimId, String cardNumber, String documentName) {
-        // Check if the document name ends with ".pdf"
+
+        // Validations
+        if (claimId == null || claimId.isEmpty()) {
+            throw new IllegalArgumentException("Claim ID cannot be empty");
+        }
+        if (cardNumber == null || cardNumber.isEmpty()) {
+            throw new IllegalArgumentException("Card number cannot be empty");
+        }
+        if (documentName == null || documentName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Document name cannot be empty");
+        }
         if (!documentName.endsWith(".pdf")) {
             throw new IllegalArgumentException("Document name must be a pdf file");
         }

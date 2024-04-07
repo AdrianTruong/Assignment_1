@@ -15,10 +15,21 @@ public abstract class Customer {
         this.id = "Default";
         this.insuranceCard = null;
     }
-    public Customer(String id, String fullName, InsuranceCard insuranceCard, CustomerRole dependent) {
 
+    //Constructor with validations
+    public Customer(String id, String fullName, InsuranceCard insuranceCard, CustomerRole role) {
+
+        // Validations
         if (!id.matches("^c\\d{7}$")) {
             throw new IllegalArgumentException("Customer ID format must follow c-numbers with 7 digits pattern");
+        }
+
+        if (fullName == null || fullName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Full name cannot be empty");
+        }
+
+        if (role == null) {
+            throw new IllegalArgumentException("Customer role cannot be empty");
         }
 
         this.id = id;
@@ -53,6 +64,31 @@ public abstract class Customer {
         claims.add(claim);
     }
 
+    // Setters with validations
+    public void setId(String id) {
+        if (!id.matches("^c\\d{7}$")) {
+            throw new IllegalArgumentException("Customer ID format must follow c-numbers with 7 digits pattern");
+        }
+        this.id = id;
+    }
+
+    public void setFullName(String fullName) {
+        if (fullName == null || fullName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Full name cannot be empty");
+        }
+        this.fullName = fullName;
+    }
+
+    public void setInsuranceCard(InsuranceCard insuranceCard) {
+        this.insuranceCard = insuranceCard;
+    }
+
+    public void setRole(CustomerRole role) {
+        if (role == null) {
+            throw new IllegalArgumentException("Customer role cannot be null");
+        }
+        this.role = role;
+    }
 
     // Override toString() method
     @Override

@@ -9,7 +9,7 @@ public final class Claim { //Made the class final
     private String insuredPerson;
     private String cardNumber;
     private Date examDate;
-    private List<Document> documents = new ArrayList<Document>(); //Defensive copy below
+    private List<Document> documents = new ArrayList<>(); //Defensive copy below
     private double claimAmount;
     private ClaimStatus status;
     private BankingInfo receiverBankingInfo;
