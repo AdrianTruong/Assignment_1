@@ -7,8 +7,8 @@ public class PolicyHolder extends Customer {
     private List<Dependent> dependents = new ArrayList<>();
 
     // Constructor
-    public PolicyHolder(String id, String fullName, InsuranceCard insuranceCard) {
-        super(id, fullName, insuranceCard, CustomerRole.POLICYHOLDER);
+    public PolicyHolder(String id, String fullName, String insuranceCard) {
+        super(id, fullName, insuranceCard, String.valueOf(CustomerRole.POLICYHOLDER));
     }
 
     // Getter for the list of dependents
