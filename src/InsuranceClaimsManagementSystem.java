@@ -59,8 +59,8 @@ public class InsuranceClaimsManagementSystem {
             System.out.println("1. Add a New Claim");
             System.out.println("2. Update an Existing Claim");
             System.out.println("3. Delete a Claim");
-            System.out.println("4. View Claim Details");
-            System.out.println("5. Go Back to Main Menu");
+            System.out.println("4. Search for Claims");
+            System.out.println("5. Display all Claims");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -253,8 +253,59 @@ public class InsuranceClaimsManagementSystem {
                         System.out.println("Claim with ID " + deleteClaimId + " does not exist.");
                     }
                     break;
+                case 4:
+
+                    // Prompt user for claim ID to search
+                    System.out.print("Enter claim ID to search: ");
+                    String searchClaimId = scanner.nextLine();
+
+                    // Retrieve the claim by ID
+                    Claim searchedClaim = claimStatusManager.getOneClaim(searchClaimId);
+                    if (searchedClaim != null) {
+                        // Display claim details
+                        System.out.println("Claim ID: " + searchedClaim.getId());
+                        System.out.println("Claim Date: " + Claim.dateFormat.format(searchedClaim.getClaimDate()));
+                        System.out.println("Insured Person: " + searchedClaim.getInsuredPerson());
+                        System.out.println("Card Number: " + searchedClaim.getCardNumber());
+                        System.out.println("Exam Date: " + Claim.dateFormat.format(searchedClaim.getExamDate()));
+                        System.out.println("Claim Amount: " + searchedClaim.getClaimAmount());
+                        System.out.println("Status: " + searchedClaim.getStatus());
+                        System.out.println("Receiver Banking Info: " + searchedClaim.getReceiverBankingInfo());
+                        System.out.println("Documents:");
+                        for (String document : searchedClaim.getDocuments()) {
+                            System.out.println("- " + document);
+                        }
+                    } else {
+                        System.out.println("Claim with ID " + searchClaimId + " does not exist.");
+                    }
+                    break;
                 case 5:
-                    manageClaims = false;
+                    System.out.println("Displaying all claims:");
+
+                    // Retrieve all claims
+                    List<Claim> allClaims = claimStatusManager.getAllClaims();
+
+                    // Check if there are any claims
+                    if (allClaims.isEmpty()) {
+                        System.out.println("There are no claims at the moment...");
+                    } else {
+                        // Display details of all claims
+                        for (Claim claim : allClaims) {
+                            System.out.println("Claim ID: " + claim.getId());
+                            System.out.println("Claim Date: " + Claim.dateFormat.format(claim.getClaimDate()));
+                            System.out.println("Insured Person: " + claim.getInsuredPerson());
+                            System.out.println("Card Number: " + claim.getCardNumber());
+                            System.out.println("Exam Date: " + Claim.dateFormat.format(claim.getExamDate()));
+                            System.out.println("Claim Amount: " + claim.getClaimAmount());
+                            System.out.println("Status: " + claim.getStatus());
+                            System.out.println("Receiver Banking Info: " + claim.getReceiverBankingInfo());
+                            System.out.println("Documents:");
+                            for (String document : claim.getDocuments()) {
+                                System.out.println("- " + document);
+                            }
+                            System.out.println();
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
