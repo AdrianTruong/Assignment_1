@@ -123,7 +123,7 @@ public class InsuranceClaimsManagementSystem {
                     String expirationDateStr = scanner.nextLine();
                     Date expirationDate = null;
                     try {
-                        expirationDate = InsuranceCard.dateFormat.parse(expirationDateStr);
+                        expirationDate = Claim.dateFormat.parse(expirationDateStr);
                     } catch (ParseException e) {
                         System.out.println("Invalid date format. Please use MM/dd/yyyy");
                     }
