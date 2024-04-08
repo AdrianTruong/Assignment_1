@@ -1,34 +1,23 @@
-public final class  Document {
-    private String claimID;
-    private String cardNumber;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+public class Document extends Claim {
+
     private String documentName;
 
-    //Constructor with validations
-    public Document(String claimId, String cardNumber, String documentName) {
-
-        // Validations
-        if (claimId == null || claimId.isEmpty()) {
-            throw new IllegalArgumentException("Claim ID cannot be empty");
-        }
-        if (cardNumber == null || cardNumber.isEmpty()) {
-            throw new IllegalArgumentException("Card number cannot be empty");
-        }
-        if (documentName == null || documentName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Document name cannot be empty");
-        }
-        if (!documentName.endsWith(".pdf")) {
-            throw new IllegalArgumentException("Document name must be a pdf file");
-        }
-
-        this.claimID = claimId;
-        this.cardNumber = cardNumber;
+    // Constructor with validations
+    public Document(String id, String cardNumber, String documentName, List<String> additionalDocuments,
+                    double claimAmount, String status, String receiverBankingInfo) {
+        super(id, new Date(), "John Doe", cardNumber, new Date(), additionalDocuments, claimAmount,
+                status, receiverBankingInfo);
         this.documentName = documentName;
     }
 
-
-    //Getter for the full document name
+    // Getter for the full document name
     public String getDocumentName() {
-        // Concatenate claim ID, card number, and document name to form the full document name
-        return claimID + "_" + cardNumber + "_" + documentName;
+        return documentName;
     }
+
 }

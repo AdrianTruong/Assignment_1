@@ -35,10 +35,11 @@ public abstract class Customer {
         this.id = id;
         this.fullName = fullName;
         this.insuranceCard = insuranceCard;
+        this.claims = new ArrayList<>();
         this.role = role;
     }
 
-
+    //Getters
     public String getId() {
         return id;
     }
@@ -64,31 +65,6 @@ public abstract class Customer {
         claims.add(claim);
     }
 
-    // Setters with validations
-    public void setId(String id) {
-        if (!id.matches("^c\\d{7}$")) {
-            throw new IllegalArgumentException("Customer ID format must follow c-numbers with 7 digits pattern");
-        }
-        this.id = id;
-    }
-
-    public void setFullName(String fullName) {
-        if (fullName == null || fullName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Full name cannot be empty");
-        }
-        this.fullName = fullName;
-    }
-
-    public void setInsuranceCard(InsuranceCard insuranceCard) {
-        this.insuranceCard = insuranceCard;
-    }
-
-    public void setRole(CustomerRole role) {
-        if (role == null) {
-            throw new IllegalArgumentException("Customer role cannot be null");
-        }
-        this.role = role;
-    }
 
     // Override toString() method
     @Override

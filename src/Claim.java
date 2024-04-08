@@ -1,22 +1,27 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public final class Claim { //Made the class final
+public class Claim {
 
-    private String id; // Fields are now final
+    private String id;
     private Date claimDate;
     private String insuredPerson;
     private String cardNumber;
     private Date examDate;
-    private List<Document> documents = new ArrayList<>(); //Defensive copy below
+    private List<String> documents = new ArrayList<>(); //Defensive copy below
     private double claimAmount;
-    private ClaimStatus status;
-    private BankingInfo receiverBankingInfo;
+    private String status;
+    private String receiverBankingInfo;
+
+    static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 
 
     // Constructor with all validations
-    public Claim(String id, Date claimDate, String insuredPerson, String cardNumber, Date examDate, double claimAmount, ClaimStatus status, BankingInfo receiverBankingInfo) {
+    public Claim(String id, Date claimDate, String insuredPerson, String cardNumber,
+                 Date examDate, List<String> documents, double claimAmount, String status, String receiverBankingInfo) {
 
         if (id == null || id.isEmpty()) {
             throw new IllegalArgumentException("Claim ID cannot be empty");
@@ -59,14 +64,44 @@ public final class Claim { //Made the class final
         this.documents = documents != null ? new ArrayList<>(documents) : new ArrayList<>();
     }
 
-    //Method to add documents
-    public void addDocument(Document document) {
-        documents.add(document);
+
+    // Getters
+    public String getId() {
+        return id;
     }
 
-    //Method to remove documents
-    public boolean removeDocument(Document document) {
-        return documents.remove(document);
+    public  Date getClaimDate() {
+        return claimDate;
     }
+
+    public String getInsuredPerson() {
+        return insuredPerson;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public Date getExamDate() {
+        return examDate;
+    }
+
+    public List<String> getDocuments() {
+        return documents;
+    }
+
+    public double getClaimAmount() {
+        return claimAmount;
+    }
+
+    public String  getStatus() {
+        return status;
+    }
+
+    public String getReceiverBankingInfo() {
+        return receiverBankingInfo;
+    }
+
+
 
 }
