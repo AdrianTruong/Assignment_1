@@ -1,7 +1,11 @@
+/**
+ * @author <Truong Bien Hai Trong - S3872952>
+ */
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class Document extends Claim {
 

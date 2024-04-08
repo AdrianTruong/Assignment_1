@@ -1,3 +1,6 @@
+/**
+ * @author <Truong Bien Hai Trong - S3872952>
+ */
 public class Dependent extends Customer {
 
     // Additional attribute for relationship to policyholder

@@ -1,3 +1,6 @@
+/**
+ * @author <Truong Bien Hai Trong - S3872952>
+ */
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;

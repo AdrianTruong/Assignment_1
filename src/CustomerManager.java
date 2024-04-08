@@ -1,5 +1,6 @@
-import java.util.List;
-
+/**
+ * @author <Truong Bien Hai Trong - S3872952>
+ */
 public interface CustomerManager {
 
     /**
