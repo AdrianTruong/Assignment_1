@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class InsuranceCard {
@@ -6,6 +7,9 @@ public class InsuranceCard {
     private String cardHolder;
     private String policyOwner;
     private Date expirationDate;
+
+    static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 
     // Default constructor
     public InsuranceCard() {

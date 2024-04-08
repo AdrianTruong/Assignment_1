@@ -5,7 +5,7 @@ public class Dependent extends Customer {
 
     // Constructor
     public Dependent(String id, String fullName, String relationshipToPolicyHolder ) {
-        super(id, fullName, null, CustomerRole.DEPENDENT);
+        super(id, fullName, null, String.valueOf(CustomerRole.DEPENDENT));
         this.relationshipToPolicyHolder = relationshipToPolicyHolder;
     }
 

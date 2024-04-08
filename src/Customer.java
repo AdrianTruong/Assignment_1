@@ -1,23 +1,23 @@
 import  java.util.List;
 import  java.util.ArrayList;
 
-public abstract class Customer {
+public class Customer {
     // Attributes
     protected String id;
     protected String fullName;
-    protected InsuranceCard insuranceCard;
+    protected String insuranceCard;
     protected List<Claim> claims = new ArrayList<>();
-    private CustomerRole role; //Represent whether the customer is a policyholder or dependent
+    private String role; //Represent whether the customer is a policyholder or dependent
 
     // Default constructor
-    public Customer() {
+    public Customer(List<Claim> customers) {
         this.fullName = "Default";
         this.id = "Default";
         this.insuranceCard = null;
     }
 
     //Constructor with validations
-    public Customer(String id, String fullName, InsuranceCard insuranceCard, CustomerRole role) {
+    public Customer(String id, String fullName, String insuranceCard, String role) {
 
         // Validations
         if (!id.matches("^c\\d{7}$")) {
@@ -48,7 +48,7 @@ public abstract class Customer {
         return fullName;
     }
 
-    public InsuranceCard getInsuranceCard() {
+    public String getInsuranceCard() {
         return insuranceCard;
     }
 
@@ -56,7 +56,7 @@ public abstract class Customer {
         return claims;
     }
 
-    public CustomerRole getRole() {
+    public String getRole() {
         return role;
     }
 
