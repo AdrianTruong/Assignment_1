@@ -13,7 +13,7 @@ public class InsuranceClaimsManagementSystem {
     private static List<PolicyHolder> policyHolders = new ArrayList<>();
     private static List<Dependent> dependents = new ArrayList<>();
 
-    ClaimStatus claimStatusManager = new ClaimStatus(claims);
+    private static ClaimStatus claimStatusManager = new ClaimStatus(claims);
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
@@ -67,6 +67,7 @@ public class InsuranceClaimsManagementSystem {
             scanner.nextLine(); // Consume newline
 
             ClaimStatus claimStatusManager = new ClaimStatus(claims);
+
 
             switch (choice) {
                 case 1:
@@ -234,7 +235,24 @@ public class InsuranceClaimsManagementSystem {
                         System.out.println("Claim with ID " + updateClaimId + " does not exist.");
                     }
                     break;
+                case 3:
+                    // Implement delete claim functionality
+                    System.out.println("Deleting a claim:");
 
+                    // Prompt user for claim ID to delete
+                    System.out.print("Enter claim ID to delete: ");
+                    String deleteClaimId = scanner.nextLine();
+
+                    // Check if the claim ID exists
+                    Claim claimToDelete = claimStatusManager.getOneClaim(deleteClaimId);
+                    if (claimToDelete != null) {
+                        // Delete the claim
+                        claimStatusManager.deleteClaim(deleteClaimId);
+                        System.out.println("Claim with ID " + deleteClaimId + " deleted successfully.");
+                    } else {
+                        System.out.println("Claim with ID " + deleteClaimId + " does not exist.");
+                    }
+                    break;
                 case 5:
                     manageClaims = false;
                     break;
